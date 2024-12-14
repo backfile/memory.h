@@ -44,12 +44,12 @@ public:
 
 	template <typename T>
 	void Write(uintptr_t address, T& data) {
-		::WriteProcessMemory(hprocess, reinterpret_cast<const void*>(address), &data, sizeof(data), 0);
+		::WriteProcessMemory(hprocess, reinterpret_cast<LPVOID>(address), &data, sizeof(data), 0);
 	}
 
 	template <typename T>
 	void Read(uintptr_t address, T& data) {
-		::ReadProcessMemory(hprocess, reinterpret_cast<const void*>(address), &data, sizeof(data), 0);
+		::ReadProcessMemory(hprocess, reinterpret_cast<LPVOID>(address), &data, sizeof(data), 0);
 	}
 
 	uintptr_t GetModuleAddress(char* nombre) {
